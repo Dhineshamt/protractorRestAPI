@@ -5,6 +5,9 @@ describe("API Test", () => {
     const options = {
       url: "https://reqres.in/api/users",
       method: "POST",
+	  headers: {
+        'Content-Type': 'application/json'
+      },
       body: {
         "name": "morpheus",
         "job": "leader"
@@ -14,7 +17,7 @@ describe("API Test", () => {
 
     request(options, function (err, res, body) {
       console.log(res.statusCode);
-      expect(res.statusCode).toBe(202);
+      expect(res.statusCode).toBe(201);
       done();
     });
   });
